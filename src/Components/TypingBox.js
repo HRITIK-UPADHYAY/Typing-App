@@ -5,9 +5,9 @@ const TypingBox = () => {
     const [time, setTime] = useState(15);
     const [idx, setIdx] = useState(Math.floor(Math.random()*paraArr.length));
     const [totalWords, setTotalWords] = useState(1000);
+    const [i, setI] = useState(0);
 
-    const para = paraArr[idx];
-    const arr = para.split(" ");
+    const arr = paraArr[idx].split(" ");
 
     function refreshText() {
         setTotalWords(1000);
@@ -16,6 +16,15 @@ const TypingBox = () => {
 
     function handleEscape() {
         refreshText();
+    }
+
+    function handleInput(e) {
+        const checkArr = paraArr[idx].split("");
+        console.log(e.key, checkArr[i], i);
+        if(e.key === checkArr[i]) {
+            console.log(true);
+            setI(i + 1);
+        }
     }
 
     return (
@@ -30,12 +39,15 @@ const TypingBox = () => {
             </div>
 
             <div className="middle">
-                {
+               {
                     arr.slice(0, totalWords).map((item) => (
                         <span> {item} </span>
                     ))
                 }
                 
+                <div className="typing-component">
+                    <textarea className="textarea" onKeyDown={handleInput}/>
+                </div>
             </div>
 
             <div className="lower">

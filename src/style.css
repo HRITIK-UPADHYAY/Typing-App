@@ -81,9 +81,34 @@ body {
     color: grey;
     font-size: 1.2rem;
     padding: 1.2rem;
+    position: relative;
+}
+  
+
+.typingBox .middle  span {
+    font-family: monospace;
 }
 
-.typingBox .middle > span {
+.typingBox .typing-component {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.typingBox .textarea {
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    color: gray;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border: none;
+    outline: none;
     font-family: monospace;
 }
 
